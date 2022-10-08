@@ -25,7 +25,7 @@ The most recent version of Predictsamplesize can be downloaded and installed usi
 
 ```{r, eval = FALSE}
 library(devtools)
-install_github('krause-lab/Predictsamplesize')
+install_github('krause-lab/predictsamplesize')
 ```
 
 ## Preparing example data
@@ -33,13 +33,18 @@ install_github('krause-lab/Predictsamplesize')
 To show the functionality of the package, data from the Golub et. al study from 1999, 'Molecular classification of cancer: class discovery and class prediction by gene expression monitoring' is preproccessed and used using the following code.
 
 ```{r}
-library(golubEsets)
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
 
-main.dir = dirname(this.path::this.path())
+BiocManager::install("golubEsets")
+library(golubEsets)
+library(SummarizedExperiment)
+library(this.path)
+main.dir = dirname(this.path())
 
 data("Golub_Merge")
 
-se = SummarizedExperiment::SummarizedExperiment(
+se = SummarizedExperiment(
   assays = list(expr = exprs(Golub_Merge)),
   colData = pData(Golub_Merge))
 saveRDS(se,
@@ -47,8 +52,7 @@ saveRDS(se,
 
 
 ## PCA
-library(QCnormSE)
-
+install_github("szymczak-lab/QCnormSE")
 res.pca = calculate_mds_pca(se = se,
                             method = "pca")
 plot_mds_pca_2d(res.pca,
@@ -69,7 +73,7 @@ After loading the library we set the parameters for the first of the first funct
 
 ```{r}
 # define parameters
-golub <- readRDS(file.path(main.dir, 'se_golub_rds'))
+golub <- readRDS(file.path(main.dir, 'se_golub.rds'))
 assay <- 'expr'
 outcome <- 'ALL.AML'
 ```
