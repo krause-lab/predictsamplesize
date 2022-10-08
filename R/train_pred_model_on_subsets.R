@@ -37,7 +37,8 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
   }
 
   # check classifier
-  name <- names(as.list(as.list(mlr3learners::lrns())$items))
+  library(mlr3learners)
+  name <- names(as.list(as.list(mlr3::lrns())$items))
   name <- name[which(grepl('classif', name))]
   if(classifier %in% name == FALSE){
     stop('classifier has to be one from the mlr3 or mlr3learners package.')
