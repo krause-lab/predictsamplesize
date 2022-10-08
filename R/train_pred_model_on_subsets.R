@@ -18,7 +18,7 @@
 #'
 #' @seealso \code{estimate_learning_curve()}, \code{plot_learning_curve()}.
 #'
-#' @export
+#' @export(train_pred_model_on_subsets)
 
 train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep = 50, balanced = FALSE, classifier){
   # Test Input Parameters
