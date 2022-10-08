@@ -12,7 +12,7 @@
 #' @param balanced A logic variable, defining if the trainingset should be balanced or have the same ratios as the original dataset.
 #' @param classifier A string with the classifier that should be used, from the options of mlr3learners.
 #'
-#' @return A dataframe containing the size of the trainingssets, the mean error, the 25 and 75 % quantile of the error and the pvalue, tested with a one sided wilcox test against the ratio of the smaller group.
+#' @return A dataframe containing the size of the trainingssets, the mean error, the 25 and 75 quantile of the error and the pvalue, tested with a one sided wilcox test against the ratio of the smaller group.
 #'
 #' @author Jonathan Krause
 #'
