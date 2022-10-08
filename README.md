@@ -43,6 +43,7 @@ plot_mds_pca_2d(res.pca,
 
 Using the Package
 ---
+
 We start by loading the package.
 
 ```r
@@ -52,8 +53,7 @@ library(Predictsamplesize)
 After loading the library we set the parameters for the first of the first functions that is provided by this package.
 
 ```r
-mainpath <- data.dir()
-golub <- readRDS(file.path(mainpath, 'se_golub_rds'))
+golub <- readRDS(file.path(main.dir, 'se_golub_rds'))
 assay <- 'expr'
 outcome <- 'ALL.AML'
 ```
@@ -67,6 +67,7 @@ ALL.AML_TRUE <- train_pred_model_on_subsets(se = golub, assay = assay, outcome =
 ALL.AML_FALSE <-  train_pred_model_on_subsets(se = golub, assay = assay, outcome = outcome, 
                                     classifier = "classif.ranger", balanced = FALSE, n_rep = 10)
 ```
+
 The resulting dataframes contain the mean, 25 and 75 quantile errorrates for all 10 used groupsizes, as well as the pvalue that was gained by using a onesided wilcoxon-test against the percentage of the lower group.
 
 ```r
@@ -76,9 +77,11 @@ ALL.AML_TRUE
 After running the function two times a second function is used to predict the errorates up to a treshold of 500 individuals.
 
 ```r
+set.seed(1234)
 ALL.AML_TRUE_est <- estimate_learning_curve(ALL.AML_TRUE, 500)
 ALL.AML_FALSE_est <- estimate_learning_curve(ALL.AML_FALSE, 500)
 ```
+
 The resulting dataframe contains the the sized for which the error was predicted, as well as the predicted errors for the mean and the 25/75 quantile.
 
 ```r
