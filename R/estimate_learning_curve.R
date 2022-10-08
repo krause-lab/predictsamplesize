@@ -6,13 +6,14 @@
 #' @param sample_size An integer defining up to which sample size the errorrate should be predicted.
 #' @param chance A double defining what the maximum pvalue for the errorate that are used should be (Default: chance = 0.05)
 #'
-#' @return A dataframe containing the samplesizes which were predicted and the predicted mean and 25/75 % quantile errorates for these samplesizes.
+#' @return A dataframe containing the samplesizes which were predicted and the predicted mean and 25/75 quantile errorates for these samplesizes.
 #'
 #' @author Jonathan Krause
 #'
 #' @seealso \code{train_pred_model_on_subsets()}, \code{plot_learning_curve()}.
 #'
 #' @export
+#' 
 
 estimate_learning_curve <- function(output, sample_size, chance = 0.05){
   # Test paramters
