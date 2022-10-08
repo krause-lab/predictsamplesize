@@ -45,3 +45,4 @@ fit_learning_curve <- function(x, y) {
   return(m)
 }
 
+library(mlr3learners)
