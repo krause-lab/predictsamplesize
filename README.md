@@ -7,7 +7,7 @@ Installation
 The most recent version of Predictsamplesize can be downloaded and installed using
 ```r
 library(devtools)
-install_github('krause-lab/Predictsamplesize')
+install_github('krause-lab/predictsamplesize')
 ```
 
 Preparing example data
@@ -15,6 +15,10 @@ Preparing example data
 To show the functionality of the package, data from the Golub et. al study from 1999, 'Molecular classification of cancer: class discovery and class prediction by gene expression monitoring' is preproccessed and used using the following code.
 
 ```r
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("golubEsets")
 library(golubEsets)
 library(SummarizedExperiment)
 library(this.path)  ## to get full path of script
