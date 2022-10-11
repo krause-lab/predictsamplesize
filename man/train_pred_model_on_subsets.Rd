@@ -27,12 +27,12 @@ A dataframe containing the size of the trainingssets, the mean error, the 25 and
 \description{
 This function takes an the data from an se object containing patient data from a pilotstudy to train and test a classifier by randomly splitting the data in two datasets, training the classifier on one set and than testing it on the other. The resulting errorrates are then tested with a one sided Wilcoxon-test against the ratio of the data of the smallest group. Than the function returns the used groupsizes, the pvalue and the mean and 25/ 75 \% quantile of the errorrates.
 }
+\note{
+If a stack overflow error occurs the problem lies within the coding of mlr3 and the error can be fixed by making changes in line 98.
+}
 \seealso{
 \code{estimate_learning_curve()}, \code{plot_learning_curve()}.
 }
 \author{
 Jonathan Krause
-}
-\note{
-  When a stack overflow error occurs, the error is with mlr3 and needs to be fixed in line 98.
 }
