@@ -33,7 +33,9 @@ plot_learning_curve <- function(estimate_learning_curve, train_pred_model_on_sub
 
   # Generate the Plot
   plot(x = pred_size, y = pred_mean,
-              ylim = c(0, max(train_pred_model_on_subset[, 2:4])),
+              ylim = c(0, max(c(train_pred_model_on_subset$error_mean,
+                                train_pred_model_on_subset$error_lower,
+                                train_pred_model_on_subset$error_upper))),
        type = "n",
        xlab = "sample size", ylab = "error rate",
        main = title)

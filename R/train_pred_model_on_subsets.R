@@ -12,7 +12,7 @@
 #' @param balanced A logic variable, defining if the trainingset should be balanced or have the same ratios as the original dataset.
 #' @param classifier A string with the classifier that should be used, from the options of mlr3learners.
 #'
-#' @return A dataframe containing the size of the trainingssets, the mean error, the 25 and 75 quantile of the error and the pvalue, tested with a one sided wilcox test against the ratio of the smaller group.
+#' @return A dataframe containing the size of the trainingssets, the mean error, the 25 and 75 % quantile of the error and the pvalue, tested with a one sided wilcox test against the ratio of the smaller group.
 #'
 #' @author Jonathan Krause
 #'
@@ -158,6 +158,10 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
       prediction <- learner$predict(task, row_ids = test_set)
 
       error[a,i] <- unname(prediction$score())
+
+      if(a == round(n_size/2) && i == round(n_rep/2)){
+        print('Calculation halfway complete!')
+      }
 
     }
     # Somehow r doesn't think error is numeric, even though it is
