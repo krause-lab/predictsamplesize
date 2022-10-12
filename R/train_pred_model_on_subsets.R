@@ -95,7 +95,7 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
   rownames(ex_data) <- 1:data_length # Set rownames that can easily be accessed
 
   # mlr3: define the task and the learner that is to be used
-  task <- mlr3::as_task_classif(ex_data, target = 'out_level')
+  task <- mlr3::as_task_classif(as.matrix(ex_data), target = 'out_level')
   learner <- mlr3::lrn(classifier)
 
   # Get the amount of patients in each group and number of groups
