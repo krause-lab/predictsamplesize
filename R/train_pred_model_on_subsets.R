@@ -19,7 +19,7 @@
 #' @seealso \code{estimate_learning_curve()}, \code{plot_learning_curve()}.
 #'
 #' @export
-#' @note If a stack overflow error occurs the problem lies within the coding of mlr3 and the error can be fixed by making changes in line 98.
+#' @note If a stack overflow error occurs the problem lies within the coding of mlr3 and the error can be fixed by making changes in line 98 or 158.
 
 train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep = 50, balanced = FALSE, classifier){
   # Test Input Parameters
