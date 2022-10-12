@@ -160,10 +160,6 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
 
       error[a,i] <- unname(prediction$score())
 
-      if(a == round(n_size/2) && i == round(n_rep/2)){
-        print('Calculation halfway complete!')
-      }
-
     }
     # Somehow r doesn't think error is numeric, even though it is
     # Get Mean and Quantiles
