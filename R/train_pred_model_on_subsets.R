@@ -77,9 +77,10 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
 
   ex_data <- data.frame(ex_data, out_level)
 
+
   # Prepare the dataset
   ex_data <- ex_data[!is.na(ex_data$out_level), ] # Remove entrys with NA in the outcome
-
+  ex_data <- ex_data[, which(colMeans(!is.na(ex_data)) > 0.5)]
   ex_data$out_level <- factor(ex_data$out_level) # Factorize the out_level to correspond with the size_group factors
   levels(ex_data$out_level) <- 1:length(levels(ex_data$out_level))
 
