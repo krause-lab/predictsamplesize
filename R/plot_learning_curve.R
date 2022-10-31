@@ -46,10 +46,10 @@ plot_learning_curve <- function(estimate_learning_curve, train_pred_model_on_sub
   lines(pred_size, pred_upper, lwd = 3, col = "blue", lty = 2)
 
   # Plot trained error rates made by the first function
-  points(train_pred_model_on_subset$size, train_pred_model_on_subset$error_mean, col = "red")
+  points(train_pred_model_on_subset$size, train_pred_model_on_subset$error_mean, col = "black", pch = 16)
 
   # Generate the legend
-  legend('topright', legend = c("75th Quantile", "Mean error", "25th Quantile"),
-         col = c("blue", "red", "blue"), lty = c(2,1,2))
+  legend('topright', legend = c("75th Quantile", "Mean error", "25th Quantile", "Trained Error"),
+         col = c("blue", "red", "blue", 'black'), lty = c(2,1,2,3))
 
 }
