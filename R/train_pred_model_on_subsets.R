@@ -19,7 +19,6 @@
 #' @seealso \code{estimate_learning_curve()}, \code{plot_learning_curve()}.
 #'
 #' @export
-#' @note If a stack overflow error occurs the problem lies within the coding of mlr3 and the error can be fixed by making changes in line 98.
 
 train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep = 50, balanced = FALSE, classifier){
   # Test Input Parameters
@@ -140,7 +139,7 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
       ratio <- round(size_group[, 2]/sum(size_group[,2]), digits = 2)
     }
 
-    # compute how big the groups have to be
+    # Compute how big the groups have to be
     ratio_size <- round(ratio * size[a])
 
     for(i in 1:n_rep){
@@ -157,7 +156,6 @@ train_pred_model_on_subsets <- function(se, assay, outcome, n_size = 10, n_rep =
 
       # get the errorrates from the prediction
       learner$train(task, row_ids = train_set)
-      #return('its here!')
       prediction <- learner$predict(task, row_ids = test_set)
 
       error[a,i] <- unname(prediction$score())
