@@ -15,7 +15,7 @@ estimate_learning_curve(output, sample_size, chance = 0.05)
 \item{chance}{A double defining what the maximum pvalue for the errorate that are used should be (Default: chance = 0.05)}
 }
 \value{
-A dataframe containing the samplesizes which were predicted and the predicted mean and 25/75 \% quantile errorates for these samplesizes.
+A dataframe containing the samplesizes which were predicted and the predicted mean and 25/75 \\% quantile errorates for these samplesizes.
 }
 \description{
 This function takes the ouput form \code{train_pred_model_on_subsets()} and a sample size up to which the errorates should be predicted, to be later displayed with \code{plot_learning_curve()}.
